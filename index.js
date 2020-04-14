@@ -29,6 +29,7 @@ app.post("/",  (req, res) => {
   // encrypt signed hash to base64
   let b64Hash = CryptoJS.enc.Base64.stringify(hash);
   if (hashedContext === b64Hash) {
+      console.log("Request Dados", signed_req);
     res.sendFile(path.join(views, "index.html"));
   } else {
     res.send("authentication failed");
